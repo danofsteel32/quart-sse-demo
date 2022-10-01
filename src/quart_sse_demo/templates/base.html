@@ -6,17 +6,6 @@
   <title>SSE Demo</title>
 </head>
 <body>
-  <p id="status">Chatting as {{ username }}, Status: {{ status }}</p>
-  <form hx-put="{{ url_for('update_status', username=username) }}"
-        hx-ext='json-enc'
-        hx-target="#status"
-        hx-swap="innerHTML"
-        hx-include="this"
-        hx-trigger="change">
-    <input type="radio" name="status" value="Online" checked>Online
-    <input type="radio" name="status" value="Away">Away
-    <input type="radio" name="status" value="Offline">Offline
-  </form>
 
   <div hx-ext="sse" sse-connect="{{ url_for('sse', username=username) }}">
     <strong>Connected Clients</strong>
@@ -38,9 +27,20 @@
     </form>
   </div>
 
+  <p id="status">Chatting as {{ username }}, Status: {{ status }}</p>
+  <form hx-put="{{ url_for('update_status', username=username) }}"
+        hx-ext='json-enc'
+        hx-target="#status"
+        hx-swap="innerHTML"
+        hx-include="this"
+        hx-trigger="change">
+    <input type="radio" name="status" value="Online" checked>Online
+    <input type="radio" name="status" value="Away">Away
+    <input type="radio" name="status" value="Offline">Offline
+  </form>
+
   <script src="{{ url_for('static', filename='htmx/htmx.js') }}"></script>
   <script src="{{ url_for('static', filename='htmx/ext/json-enc.js') }}"></script>
   <script src="{{ url_for('static', filename='htmx/ext/sse.js') }}"></script>
 </body>
 </html>
-
