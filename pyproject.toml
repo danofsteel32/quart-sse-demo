@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+    "setuptools>=61.0.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quart-sse-demo"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+authors = [{name = "Dan Davis", email = "dan@dandavis.dev"}]
+license = { text = "GPL-3.0-or-later" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+keywords = []
+dependencies = [
+    "quart",
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["black", "flake8", "flake8-isort", "mypy", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/danofsteel32/quart-sse-demo"
+
+# [project.scripts]
+# quart-sse-demo = "quart-sse-demo.cli:run"
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
